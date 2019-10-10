@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        {{posts}}
-    </div>
+    {% for post in posts %}
+    <h1>
+        post: {{post.title}}
+    </h1>
+    {% endfor %}
 </body>
 </html>
