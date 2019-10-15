@@ -1,11 +1,16 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <div class="post">
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=postcito.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        
         {% if postcito.published_date %}
             <div class="date">
                 {{ postcito.published_date }}
             </div>
         {% endif %}
+        
         <h1>{{ postcito.title }}</h1>
         <p>{{ postcito.text|linebreaksbr }}</p>
     </div>
